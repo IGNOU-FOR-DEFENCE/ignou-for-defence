@@ -1,53 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome Ankita Sharma!</title>
-    <style>
-        body {
-            background-color: yellow;
-        }
-    </style>
-</head>
-
-<body>
-    <h1>Welcome Ankita Sharma!</h1>
-    <p>It's been too long that I haven't seen you. Thank you for coming.</p>
-    <a href="#continue">Click to Continue</a>
-
-    <div id="continue" style="display: none;">
-        <h2>Continue...</h2>
-        <div class="tab">
-            <input type="radio" id="color" name="tab" checked>
-            <label for="color">Ask for your favourite colour:</label>
-            <input type="text" id="colorInput">
-        </div>
-
-        <div class="tab">
-            <input type="radio" id="subject" name="tab">
-            <label for="subject">Ask for your favourite subject:</label>
-            <input type="text" id="subjectInput">
-        </div>
-
-        <div class="tab">
-            <input type="radio" id="password" name="tab">
-            <label for="password">Ask for your password for this account:</label>
-            <input type="password" id="passwordInput">
-        </div>
-
-        <div class="tab">
-            <input type="radio" id="final" name="tab">
-            <label for="final">Click to Continue</label>
-        </div>
-    </div>
-
+    <title>Patient Satisfaction Survey</title>
     <script>
-        document.querySelector('a').addEventListener('click', function () {
-            document.getElementById('continue').style.display = 'block';
-        });
-    </script>
-</body>
+        function validateForm() {
+            var name = document.forms["surveyForm"]["name"].value;
+            var fileNumber = document.forms["surveyForm"]["fileNumber"].value;
+            var unit = document.forms["surveyForm"]["unit"].value;
+            var overallSatisfaction = document.forms["surveyForm"]["overallSatisfaction"].value;
+            var medicalFacilitiesSatisfaction = document.forms["surveyForm"]["medicalFacilitiesSatisfaction"].value;
 
+            if (name === "" || fileNumber === "" || unit === "Select" || overallSatisfaction === "" || medicalFacilitiesSatisfaction === "") {
+                alert("Please fill in all the required fields.");
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Patient Satisfaction Survey</h1>
+    <form name="surveyForm" action="submit_to_database.php" onsubmit="return validateForm()" method="post">
+        <label for="name">Patient's name:</label>
+        <input type="text" name="name" required><br>
+
+        <label for="fileNumber">Patient's File number:</label>
+        <input type="text" name="fileNumber" required><br>
+
+        <label for="unit">Which Unit of the hospital:</label>
+        <select name="unit">
+            <option value="Select">Select</option>
+            <option value="Surgery">Surgery</option>
+            <option value="Medicine">Medicine</option>
+            <!-- Add more unit options as needed -->
+        </select><br>
+
+        <label>Are you satisfied with overall treatment:</label><br>
+        <input type="radio" name="overallSatisfaction" value="Very Satisfied"> Very Satisfied
+        <input type="radio" name="overallSatisfaction" value="Satisfied"> Satisfied
+        <input type="radio" name="overallSatisfaction" value="Not Satisfied"> Not Satisfied<br>
+
+        <label>Are you satisfied with medical facilities in the hospital:</label><br>
+        <input type="radio" name="medicalFacilitiesSatisfaction" value="Very Satisfied"> Very Satisfied
+        <input type="radio" name="medicalFacilitiesSatisfaction" value="Satisfied"> Satisfied
+        <input type="radio" name="medicalFacilitiesSatisfaction" value="Not Satisfied"> Not Satisfied<br>
+
+        <label for="comments">Overall Comments:</label>
+        <textarea name="comments" rows="5" cols="40"></textarea><br>
+
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+    </form>
+</body>
 </html>
