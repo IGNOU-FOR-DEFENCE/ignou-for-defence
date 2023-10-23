@@ -1,30 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Naval Warship Background</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Ankita Sharma!</title>
     <style>
         body {
-            background-image: url('data:image/jpeg;base64,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');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        h1 {
-            color: white;
-            font-size: 36px;
-            text-align: center;
+            background-color: yellow;
         }
     </style>
 </head>
+
 <body>
-    <h1>Welcome!</h1>
-    <a id="next-tab" href="next-page.html">Next</a>
+    <h1>Welcome Ankita Sharma!</h1>
+    <p>It's been too long that I haven't seen you. Thank you for coming.</p>
+    <a href="#continue">Click to Continue</a>
+
+    <div id="continue" style="display: none;">
+        <h2>Continue...</h2>
+        <div class="tab">
+            <input type="radio" id="color" name="tab" checked>
+            <label for="color">Ask for your favourite colour:</label>
+            <input type="text" id="colorInput">
+        </div>
+
+        <div class="tab">
+            <input type="radio" id="subject" name="tab">
+            <label for="subject">Ask for your favourite subject:</label>
+            <input type="text" id="subjectInput">
+        </div>
+
+        <div class="tab">
+            <input type="radio" id="password" name="tab">
+            <label for="password">Ask for your password for this account:</label>
+            <input type="password" id="passwordInput">
+        </div>
+
+        <div class="tab">
+            <input type="radio" id="final" name="tab">
+            <label for="final">Click to Continue</label>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('a').addEventListener('click', function () {
+            document.getElementById('continue').style.display = 'block';
+        });
+    </script>
 </body>
+
 </html>
