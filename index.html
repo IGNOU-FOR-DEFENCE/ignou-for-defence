@@ -1,28 +1,79 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Student Web Page</title>
+    <title>User Registration</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
         }
-        h1 {
-            color: #007BFF;
-            font-size: 36px; /* Adjust the font size as needed */
-            font-weight: bold; /* Make the text bold */
-            font-style: italic; /* Apply italic style */
-            text-transform: uppercase; /* Convert text to uppercase */
+        .tabs {
+            display: flex;
+            justify-content: center;
         }
-        p {
-            color: #333;
+        .tab {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 10px;
+        }
+        .form {
+            display: none;
+            text-align: left;
+            padding: 20px;
+        }
+        .form.active {
+            display: block;
         }
     </style>
 </head>
 <body>
-    <h1>HELLO, IGNOU DEFENCE LOVERS</h1>
-    <p>This is my personal web page as a student. I'm learning HTML!</p>
+    <h1>Register as a User</h1>
+    <div class="tabs">
+        <a href="#" class="tab" onclick="openTab(event, 'usernameTab')">Username</a>
+        <a href="#" class="tab" onclick="openTab(event, 'personalInfoTab')">Personal Info</a>
+        <a href="#" class="tab" onclick="openTab(event, 'passwordTab')">Password</a>
+    </div>
+    <div id="usernameTab" class="form active">
+        <h2>Step 1: Choose a Username</h2>
+        <input type="text" placeholder="Enter your username">
+        <button onclick="openTab(event, 'personalInfoTab')">Next</button>
+    </div>
+    <div id="personalInfoTab" class="form">
+        <h2>Step 2: Personal Information</h2>
+        <input type="text" placeholder="Enter your personal number (6 characters)">
+        <button onclick="openTab(event, 'passwordTab')">Next</button>
+    </div>
+    <div id="passwordTab" class="form">
+        <h2>Step 3: Create a Password</h2>
+        <input type="password" placeholder="Create a password">
+        <button onclick="saveUser()">Save</button>
+    </div>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, form, tab;
+            form = document.getElementsByClassName("form");
+            for (i = 0; i < form.length; i++) {
+                form[i].style.display = "none";
+            }
+            tab = document.getElementsByClassName("tab");
+            for (i = 0; i < tab.length; i++) {
+                tab[i].classList.remove("active");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.classList.add("active");
+        }
+
+        function saveUser() {
+            // Add your code to save user data here
+            alert("User registration complete!");
+        }
+    </script>
 </body>
 </html>
-
 
